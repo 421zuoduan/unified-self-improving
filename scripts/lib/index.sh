@@ -28,7 +28,7 @@ index_rebuild() {
     done
     
     # 扫描 WARM
-    for ns_dir in "$WARN_DIR"/*/; do
+    for ns_dir in "$WARM_DIR"/*/; do
         if [[ -d "$ns_dir" ]]; then
             local ns=$(basename "$ns_dir")
             for file in "$ns_dir"/*.jsonl; do
@@ -78,8 +78,8 @@ index_add() {
         index_remove "$id"
     fi
     
-    jq --arg id "$id" --arg level "$level" --arg ns "$namespace" \
-        '. + [{"id": $id, "level": $level, "namespace": $ns, "updated_at": now}]' \
+    jq --arg id "$id" --arg level "$level" --arg ns "$namespace" --arg now "$(date -u +"%Y-%m-%dT%H:%M:%SZ")" \
+        '. + [{"id": $id, "level": $level, "namespace": $ns, "updated_at": $now}]' \
         "$INDEX_FILE" > "${INDEX_FILE}.tmp"
     mv "${INDEX_FILE}.tmp" "$INDEX_FILE"
 }

@@ -2,7 +2,7 @@
 
 统一自我进化系统，整合 self-improving-agent、self-improving、mulch 三个技能的优势。
 
-**ClawHub**: https://clawhub.com/skills/unified-self-improving
+**ClawHub**: https://clawhub.ai/421zuoduan/unified-self-improving
 
 ## 功能
 
@@ -74,7 +74,7 @@ unified-self-improving query --priority high --level hot
 
 #### 层级移动
 ```bash
-# 移动到指定层级 (合并 promote/upgrade)
+# 移动到指定层级
 unified-self-improving move --id learn-xxx --to warm
 ```
 
@@ -92,13 +92,13 @@ unified-self-improving namespace delete myproject
 
 #### 索引
 ```bash
-# 重建索引 (合并 mulch prime)
+# 重建索引
 unified-self-improving index rebuild
 ```
 
 #### 导入导出
 ```bash
-# 批量导入 (合并 mulch import)
+# 批量导入
 unified-self-improving import learnings.jsonl
 
 # 指定目标层级和命名空间
@@ -147,17 +147,15 @@ unified-self-improving session end
 
 | 原始技能 | 整合功能 |
 |----------|----------|
-| self-improving-agent | query, detect-pattern, promote |
-| self-improving | namespace, upgrade, recall |
+| self-improving-agent | query, detect-pattern, move |
+| self-improving | namespace, move, recall |
 | mulch | index, query, import |
 
 所有接口已统一为 `unified-self-improving <command>` 格式。
 
-## 文档
-
-详细文档见 [SKILL.md](./SKILL.md)
-
 ## 版本
 
-- **1.0.1**: 统一 CLI 接口，整合脚本
+- **1.0.3**: 修复代码 bug，更新文档
+- **1.0.2**: 添加 ClawHub 链接
+- **1.0.1**: 统一 CLI 接口
 - **1.0.0**: 初始版本

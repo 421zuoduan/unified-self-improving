@@ -59,9 +59,9 @@ session_end() {
     local session_id=$(cat "$session_file")
     local timestamp=$(now)
     
-    # 记录会话结束
+    # 记录会话结束 - 追加新行 JSON（不是带逗号的前缀）
     local jsonl_file="$HOT_DIR/${session_id}.jsonl"
-    echo ",{\"id\": \"$session_id\", \"type\": \"session\", \"event\": \"end\", \"timestamp\": \"$timestamp\"}" >> "$jsonl_file"
+    echo "{\"id\": \"$session_id\", \"type\": \"session\", \"event\": \"end\", \"timestamp\": \"$timestamp\"}" >> "$jsonl_file"
     
     # 执行自动升级检查
     echo "Running auto-upgrade check..."
