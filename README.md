@@ -2,6 +2,8 @@
 
 统一自我进化系统，整合 self-improving-agent、self-improving、mulch 三个技能的优势。
 
+**ClawHub**: https://clawhub.com/skills/unified-self-improving
+
 ## 功能
 
 - 三层存储：HOT / WARM / COLD
